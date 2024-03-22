@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet">
-    <title>My Portfolio</title>
+    <title>Manjunath Karanth</title>
     <style>
 
         body {
@@ -23,6 +23,7 @@
             margin: 0;
             padding: 0;
             gap: 0;
+            
         }
 
         h2 {
@@ -48,9 +49,17 @@
 
 
         nav {
-        padding: 0;
-        margin: 10px 0; /* Provides space around the navigation bar itself */
+            padding: 25px 0; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1E242B;
+            z-index: 1000; /* Ensures nav is above other content */
+           
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: adds shadow for depth */
             }
+        
 
         nav a {
             display: inline-block; /* Treats each link like a block for styling */
@@ -119,8 +128,10 @@
             line-height: 1.5;
         }
 
+        
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 200px;
         }
 
         .name-container {
@@ -180,17 +191,55 @@
     </section>
     
     <section id="visual-effects" class="sectionclass">
-        <h2>Visual Effects</h2>
+        <h2>Visual Effects Works</h2>
         <p>Brief explanation of what tools I use.</p>
         <div class="video-container">
             <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
             <!-- Repeat for each video -->
         </div>
     </section>
 
+    <section id="motion-graphics" class="sectionclass">
+        <h2>Motion Graphics Works</h2>
+        <p>Brief explanation of what tools I use.</p>
+        <div class="video-container">
+            <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <!-- Repeat for each video -->
+        </div>
+    </section>
+
+
     <script>
+
+
+
+function adjustBodyPadding() {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        document.body.style.paddingTop = `${navHeight}px`;
+    }
+
+    // Adjust padding on page load
+    window.addEventListener('load', adjustBodyPadding);
+
+    // Adjust padding on window resize
+    window.addEventListener('resize', adjustBodyPadding);
+
+
+
         document.addEventListener("DOMContentLoaded", function() {
             const navLinks = document.querySelectorAll('nav a');
         
