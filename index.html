@@ -7,25 +7,6 @@
     <title>Manjunath Karanth</title>
     <style>
 
-        body {
-            background-color: #1E242B;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            gap: 0;
-            letter-spacing: 0.5px;
-            
-        }
-
-        body *{
-            line-height: 0;
-            margin: 0;
-            padding: 0;
-            gap: 0;
-            
-        }
-
         h2 {
             color: #2AD87F;
         }
@@ -47,26 +28,27 @@
             transform: scale(1.02); /* Slightly scale up on hover */
         }
 
-
-        nav {
-            padding: 25px 0; 
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+        body {
             background-color: #1E242B;
-            z-index: 1000; /* Ensures nav is above other content */
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            padding: 0;
+            gap: 0;
+            letter-spacing: 0.5px;
            
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: adds shadow for depth */
-            }
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
         
 
         nav a {
             display: inline-block; /* Treats each link like a block for styling */
             color: #1E242B; /* Text color */
             text-decoration: none;
+            font-size: 14px;
             margin: 5px; /* Space between each "box" */
-            padding: 10px 15px; /* Padding inside each "box" */
+            padding: 1px 10px; /* Padding inside each "box" */
             background-color: #2AD87F; /* Background color of each "box" */
             border-radius: 4px; /* Optional: Rounded corners for the "boxes" */
             transition: transform 0.5s ease, background-color 0.5s ease;
@@ -82,70 +64,84 @@
             background-color: #1E242B; 
         }
         
-        .sectionclass *{
-            line-height:2;
-        }
-
-        .sectionclass{
-            padding-bottom: 25px;
-            padding-left: 10px;
-        }
-        
-        .IntroInfo {
-            margin: 0;
-            padding-top: 25px;
-            padding-bottom: 25px;
-            padding-left: 10px;
-            line-height:0;
-        }
-
-     
-        .IntroInfo *{
-        margin: 0;
-        padding: 0;
-        line-height: 1.5; /* Tightens the line spacing */
-        }
-
-        #introline {
-            font-weight: 200; /* thin */
-            font-size: 25px; /* Adjust font size as needed */
-           
-        }
-
-        #firstname {
-            font-weight: 600; /* Semi-bold */
-            font-size: 50px; /* Adjust font size as needed */
-           
-        }
-
-        #lastname {
-            font-weight: 400; /* Regular */
-            font-size: 50px; /* Adjust font size as needed */
-           
-        }
-
-        #breifs {
-            line-height: 1.5;
-        }
-
-        
+  
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 200px;
+           
         }
 
         .name-container {
             display: flex; /* Enables Flexbox */
+            flex-direction: column;
             flex-wrap: wrap; /* Allows items to wrap onto the next line on small screens */
-            justify-content: flex-start; /* Align items to the left */
-            align-items: flex-start; /* Align items to the top */
-            margin: 10px;
+            justify-content:center;/* Align items to the left */
+            align-items: center; /* Align items to the top */
+            
         }
-        .name-container h1 {
-            margin: -10px; /* Negative gap effect by pushing elements closer */
+        
+        .highlight {
+            color: #2AD87F; /* Change this to your desired color */
         }
 
-        @media (max-width: 768px) {
+
+.sectionA {
+    box-sizing: border-box;
+    width: calc(100% - 10px - 10px);
+    margin-right: 10px;
+    display: flex;
+ 
+    flex-direction: column;
+    position: fixed; /* Needed for absolute positioning of children */
+    top: 0;
+    padding-top: 10px;
+    background-image: url('bg.jpg');
+    background-position: center;
+}
+
+.sectionB {
+    display: flex; /* Enables flexbox layout */
+    width: 100%; /* Takes full width of its parent */
+    position: relative; /* Allows absolute positioning of header and socialLinks */
+    
+}
+
+.sectionB > header {
+    left: 0;top: 0;
+    width: 33.333%; /* 1/3 of sectionB's width */
+    text-align: left;
+    margin-left: 12px;
+   
+}
+
+.sectionB > .spacer {
+    flex: 1;
+}
+
+.sectionB > .socialLinks {
+    right: 0;top: 0;
+    width: 33.333%; /* 1/3 of sectionB's width */
+    /* Ensure the social links content aligns to the right */
+    text-align: right;
+    margin-right: 12px;
+    
+   
+}
+
+nav {
+    width: 100%; /* Full width to match sectionB */
+    padding-top: 25px;
+    padding-bottom: 10px;
+    /* Adjust height if needed, or let it be content-based */
+    display: flex; /* Flex layout to align nav items, optional */
+    justify-content: center; /* Center items horizontally, optional */
+    align-items: center; /* Center items vertically, optional */
+    flex-wrap: wrap; /* Allows nav items to wrap within the nav container */
+    text-align: center; /* Center the text of nav links if not using flexbox for alignment */
+    /* Add any additional styling for nav */
+}
+
+
+@media (max-width: 768px) {
             nav {
                 justify-content: space-around; /* Adjusts spacing for smaller screens */
             }
@@ -154,45 +150,76 @@
             }
         }
 
+        
 
     </style>
 </head>
 
 <body>
+    
+    <section class="sectionA">
+
+        <section class="sectionB">
+
+            <a>Linkedin Profile </a>
+            
+            <div class="spacer"></div> <!-- This div acts as the blank second part -->
+
+            <div class="socialLinks" style="display: flex;flex-direction: column;">
+                
+                <a>Download CV </a>
         
-    <nav>
-        <a href="#about">About</a>
-        <a href="#visual-effects">Visual Effects</a>
-        <a href="#motion-graphics">Motion Graphics</a>
-        <a href="titles">Titles</a>
-        <a href="#3d-renders">3D Renders</a>
-        <a href="#automation">Automation</a>
-        <a href="#ai-ml">AI & ML</a>
-        <a href="#dp-analytics">Data Processing & Analytics</a>
-        <a href="#software-web-development">Software & Web Development</a>
-    </nav>
-    
-    <header class="IntroInfo">
-        <h1 id="introline">Hey there, I am</h1>
+            </div> <!-- This div acts as the blank second part -->
+            
+        </section>
 
-        <div class="name-container">
-            <h1 id="firstname" style="padding-right: 30px;">Manjunath</h1>
-            <h1 id="lastname">Karanth</h1>
-        </div>
-            <h1 style="line-height: 1.2;font-weight: 200;font-size: 15px;">Creative Technologist | Motion Graphics & Visual Effects | Adobe Scripting and Expressions | Python Development | Data Analytics & Machine Learning</h1>
+        <header>
 
-    </header>
+            <div class="name-container">
+                
+                <div class="nameIntro" style="display: flex;align-items: center;justify-content: center;flex-wrap: wrap;">
+                    <h1 style="font-weight: 200; font-size: 26px;padding-right: 8px;line-height: 0.5;">Hey there, I am</h1>
+                    <h1 style="padding-right: 8px; margin: 0;font-size: 50px;line-height: 0.5;">Manjunath</h1>
+                    <h1 style="font-weight: 400; margin: 0; font-size: 50px;">Karanth</h1>
+                </div>
+
+                <!-- <h1 class="myRoles" style="font-weight: 200; font-size: 16px; margin: 0;align-items: center;margin-top: 0;">
+                    Creative Technologist <span class="highlight">|</span> Motion Graphics & Visual Effects 
+                    <span class="highlight">|</span> Adobe Scripting and Expressions <span class="highlight">|</span> Python Development 
+                    <span class="highlight">|</span> Data Analytics & Machine Learning <span class="highlight">|</span> Software & Web Development
+                </h1>  -->
+            </div>
+            
+        </header>
+
+        
+       
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#visual-effects">Visual Effects</a>
+            <a href="#motion-graphics">Motion Graphics</a>
+            <a href="#titles">Titles</a>
+            <a href="#3d-renders">3D Renders</a>
+            <a href="#automation">Automation</a>
+            <a href="#ai-ml">AI & ML</a>
+            <a href="#dp-analytics">Data Processing & Analytics</a>
+            <a href="#software-web-development">Software & Web Development</a>
+            <a href="#contact">Contact</a>
+        </nav>
     
-    <section id="about" class="sectionclass">
-        <h2>About</h2>
-        <p id="breifs">I am a seasoned Creative Technologist, blending 
+    </section>
+    
+    <section id="about">
+        <h2 style="margin-bottom: 0;">About</h2>
+        <p style="margin-top: 0; font-weight: 200;" >I am a seasoned Creative Technologist, blending 
             creative media production with technical software development. Specializing in motion graphics, visual effects, software development, data analytics, and AI, I lead innovations where creativity meets 
             technology. My expertise in After Effects, Blender, Python, and JavaScript drives projects that merge visual storytelling with technical excellence.</p>
     </section>
     
-    <section id="visual-effects" class="sectionclass">
-        <h2>Visual Effects Works</h2>
-        <p>Brief explanation of what tools I use.</p>
+    <section id="visual-effects" style="margin-top: 50px;">
+        <h2  style="margin-bottom: 0;">Visual Effects Works</h2>
+        <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
         <div class="video-container">
             <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
             <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -206,9 +233,9 @@
         </div>
     </section>
 
-    <section id="motion-graphics" class="sectionclass">
-        <h2>Motion Graphics Works</h2>
-        <p>Brief explanation of what tools I use.</p>
+    <section id="motion-graphics" style="margin-top: 50px;">
+        <h2  style="margin-bottom: 0;">Motion Graphics Works</h2>
+        <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
         <div class="video-container">
             <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
             <iframe src="https://www.youtube.com/embed/xP8SI6WDJtU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -221,60 +248,91 @@
             <!-- Repeat for each video -->
         </div>
     </section>
-
 
     <script>
 
+offsetgap=10;
 
 
 function adjustBodyPadding() {
-        const navHeight = document.querySelector('nav').offsetHeight;
-        document.body.style.paddingTop = `${navHeight}px`;
-    }
+    const sectionAHeight = document.querySelector('.sectionA').offsetHeight+offsetgap;
+    // const navHeight = document.querySelector('nav')
+    document.body.style.paddingTop = `${sectionAHeight}px`;
+}
 
-    // Adjust padding on page load
-    window.addEventListener('load', adjustBodyPadding);
+// function adjustwidthDesig() {
+//     const nameIntrowidth = document.querySelector('.nameIntro').offsetWidth;
+   
+//     document.querySelector('.myRoles').style.width = `${nameIntrowidth}px`;
+// }
 
-    // Adjust padding on window resize
-    window.addEventListener('resize', adjustBodyPadding);
+window.addEventListener('resize' , function() {
 
+    adjustBodyPadding();
 
+})
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const navLinks = document.querySelectorAll('nav a');
-        
-            navLinks.forEach(link => {
-                // Wrap link text in a span for accurate width measurement
-                const textSpan = document.createElement('span');
-                textSpan.style.display = 'inline-block'; // Ensures the span doesn't extend full width
-                textSpan.innerHTML = link.innerHTML; // Move current link content into the span
-                link.innerHTML = ''; // Clear current link content
-                link.appendChild(textSpan); // Add the text span back into the link
-        
-                // Create the underline span
-                const underline = document.createElement('span');
-                underline.style.position = 'absolute';
-                underline.style.bottom = '0';
-                underline.style.left = '50%';
-                underline.style.width = '0'; // Start with no width
-                underline.style.height = '1px';
-                underline.style.backgroundColor = '#2AD87F';
-                underline.style.transition = 'all 0.5s ease';
-                underline.style.transform = 'translateX(-50%) scaleX(0)'; // Center and hide
-                underline.style.transformOrigin = 'center';
-        
-                link.appendChild(underline);
-        
-                // Adjust underline on hover
-                link.addEventListener('mouseenter', () => {
-                    underline.style.width = `${textSpan.offsetWidth}px`; // Set underline width to text width
-                    underline.style.transform = 'translateX(-50%) scaleX(1)'; // Center and show
+window.addEventListener("DOMContentLoaded", function() {
+    
+    adjustBodyPadding();
+ 
+
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor behavior
+
+            // Fetch the current height of the navigation bar at the time of click
+            const sectionAHeight = document.querySelector('.sectionA').offsetHeight+offsetgap;
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                const targetTop = targetElement.getBoundingClientRect().top + window.scrollY; // Get the current top position
+                const offsetTop = targetTop - sectionAHeight; // Calculate the offset position
+
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
                 });
-                link.addEventListener('mouseleave', () => {
-                    underline.style.transform = 'translateX(-50%) scaleX(0)'; // Center and hide
-                });
-            });
+            }
         });
+    });
+
+
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        // Wrap link text in a span for accurate width measurement
+        const textSpan = document.createElement('span');
+        textSpan.style.display = 'inline-block'; // Ensures the span doesn't extend full width
+        textSpan.innerHTML = link.innerHTML; // Move current link content into the span
+        link.innerHTML = ''; // Clear current link content
+        link.appendChild(textSpan); // Add the text span back into the link
+
+        // Create the underline span
+        const underline = document.createElement('span');
+        underline.style.position = 'absolute';
+        underline.style.bottom = '0';
+        underline.style.left = '50%';
+        underline.style.width = '0'; // Start with no width
+        underline.style.height = '1px';
+        underline.style.backgroundColor = '#2AD87F';
+        underline.style.transition = 'all 0.5s ease';
+        underline.style.transform = 'translateX(-50%) scaleX(0)'; // Center and hide
+        underline.style.transformOrigin = 'center';
+
+        link.appendChild(underline);
+
+        // Adjust underline on hover
+        link.addEventListener('mouseenter', () => {
+            underline.style.width = `${textSpan.offsetWidth}px`; // Set underline width to text width
+            underline.style.transform = 'translateX(-50%) scaleX(1)'; // Center and show
+        });
+        link.addEventListener('mouseleave', () => {
+            underline.style.transform = 'translateX(-50%) scaleX(0)'; // Center and hide
+        });
+    });
+});
         </script>
                 
     </body>
