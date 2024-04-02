@@ -15,13 +15,15 @@
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
-            justify-content: center;
+            justify-content: flex-start;
+            
         }
     
         .video-container iframe {
-            flex: 1 1 300px; /* Responsive width, minimum 300px */
-            height: 168px; /* Based on a 16:9 aspect ratio */
+            flex: 1 1 100%; /* Responsive width, minimum 300px */
+            height: 141px; /* Based on a 16:9 aspect ratio */
             transition: transform 0.3s ease; /* Smooth transition for scaling */
+            max-width: 250px;
         }
 
         .video-container iframe:hover {
@@ -142,17 +144,25 @@ nav {
 
 
 @media (max-width: 768px) {
+
             nav {
                 justify-content: space-around; /* Adjusts spacing for smaller screens */
             }
+
             nav a {
                 margin: 10px 5px; /* Smaller margins for smaller screens */
             }
-        }
 
+            .video-container iframe {
+                max-width: 100%;
+                max-height: 100%;
+             }
+
+        }
         
 
     </style>
+    
 </head>
 
 <body>
@@ -196,7 +206,7 @@ nav {
         <nav>
             <a href="#about">About</a>
             <a href="#visual-effects">Visual Effects</a>
-            <a href="#3d-renders">3D Renders</a>
+            <a href="#d-renders">3D Renders</a>
             <a href="#motion-graphics">Motion Graphics</a>
             <a href="#titles">Titles</a>
             <a href="#ai-ml-automation">AI-ML & Automation</a>
@@ -226,7 +236,7 @@ nav {
         </div>
     </section>
 
-    <section id="3d-renders" style="margin-top: 50px;">
+    <section id="d-renders" style="margin-top: 50px;">
         <h2  style="margin-bottom: 0;">3D Renders</h2>
         <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
         <div class="video-container">
@@ -302,6 +312,21 @@ nav {
 
 
     <script>
+
+
+
+
+    function loadVideo(videoId) {
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        document.querySelector('.video-container').innerHTML = ''; // Clear existing content
+        document.querySelector('.video-container').appendChild(iframe);
+    }
+
+
 
 offsetgap=10;
 
