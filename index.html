@@ -154,9 +154,10 @@ nav {
                 margin: 10px 5px; /* Smaller margins for smaller screens */
             }
 
-            .video-container iframe {
+            .video-container .video-item {
                 max-width: 100%;
                 max-height: 100%;
+                object-fit: cover;
              }
 
         }
@@ -233,32 +234,32 @@ nav {
         <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
         
         <div class="video-container">
-            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Aurora+Borealis.jpg">
+            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Aurora+Borealis.jpg">
                 <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Aurora+Borealis.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Sun+Temple.jpg">
+            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Sun+Temple.jpg">
                 <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Sun+Temple.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transition_Another+World.jpg">
+            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transition_Another+World.jpg">
                 <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Transition_Another+World.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transiton_Energised.jpg">
+            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transiton_Energised.jpg">
                 <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Transiton_Energised.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Vatika+Business+Center.jpg">
+            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Vatika+Business+Center.jpg">
                 <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Vatika+Business+Center.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Wolf+Pack.jpg">
+            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Wolf+Pack.jpg">
                 <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Wolf+Pack.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -276,17 +277,34 @@ nav {
 
 
 
-    function loadVideo(videoId) {
-        var iframe = document.createElement('iframe');
-        iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1');
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-        iframe.setAttribute('allowfullscreen', '');
-        document.querySelector('.video-container').innerHTML = ''; // Clear existing content
-        document.querySelector('.video-container').appendChild(iframe);
+var videos = document.querySelectorAll('video');
+
+    // Function to pause all videos
+    function pauseAllVideos() {
+        videos.forEach(function(video) {
+            video.pause();
+        });
     }
 
+    // Variable to store the timeout ID
+    var scrollTimeout;
 
+    // Function to handle scroll events
+    function handleScroll() {
+        // Clear the timeout if it's already set
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+
+        // Set a new timeout to pause all videos after 500 milliseconds
+        scrollTimeout = setTimeout(pauseAllVideos, 500);
+    }
+
+    // Add event listener for scroll events
+    window.addEventListener('scroll', handleScroll);
+
+
+    
 
 offsetgap=10;
 
