@@ -19,14 +19,15 @@
             
         }
     
-        .video-container iframe {
+        .video-container .video-item {
             flex: 1 1 100%; /* Responsive width, minimum 300px */
             height: 141px; /* Based on a 16:9 aspect ratio */
             transition: transform 0.3s ease; /* Smooth transition for scaling */
             max-width: 250px;
+            border-radius: 4px;
         }
 
-        .video-container iframe:hover {
+        .video-container .video-item:hover {
             transform: scale(1.02); /* Slightly scale up on hover */
         }
 
@@ -221,7 +222,7 @@ nav {
     </section>
     
     <section id="about">
-        <h2 style="margin-bottom: 0;">About</h2>
+        <h2 style="margin-bottom: 0;">About</h2>s
         <p style="margin-top: 0; font-weight: 200;" >I am a seasoned Creative Technologist, blending 
             creative media production with technical software development. Specializing in motion graphics, visual effects, software development, data analytics, and AI, I lead innovations where creativity meets 
             technology. My expertise in After Effects, Blender, Python, and JavaScript drives projects that merge visual storytelling with technical excellence.</p>
@@ -230,103 +231,44 @@ nav {
     <section id="visual-effects" style="margin-top: 50px;">
         <h2  style="margin-bottom: 0;">Visual Effects Works</h2>
         <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
+        
         <div class="video-container">
-            <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
-            <iframe src="https://www.youtube.com/embed/7fm45VQu3G0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Pmaz7uujCZk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/xHI9pc0kcWI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/19ExbiTvrqY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/sfuNu3YsNA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/tGP1BaaCP_Q  " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <!-- Repeat for each video -->
+            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Aurora+Borealis.jpg">
+                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Aurora+Borealis.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Sun+Temple.jpg">
+                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Sun+Temple.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transition_Another+World.jpg">
+                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Transition_Another+World.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transiton_Energised.jpg">
+                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Transiton_Energised.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Vatika+Business+Center.jpg">
+                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Vatika+Business+Center.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <video class="video-item" controls poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Wolf+Pack.jpg">
+                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Wolf+Pack.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
         </div>
-    </section>
-
-    <section id="d-renders" style="margin-top: 50px;">
-        <h2  style="margin-bottom: 0;">3D Renders</h2>
-        <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
-        <div class="video-container">
-            <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
-            <iframe src="https://www.youtube.com/embed/1wNHn6I2egM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Oedlv0gG6KI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Cov4wA1zbBg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/y7V2Gr2voTM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/sOTQ7_2jrXk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/kQaTQ3bGLu8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            
-
-            <!-- Repeat for each video -->
-        </div>
-    </section>
-
-    <section id="motion-graphics" style="margin-top: 50px;">
-        <h2  style="margin-bottom: 0;">Motion Graphics</h2>
-        <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
-        <div class="video-container">
-            <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
-            <iframe src="https://www.youtube.com/embed/ED4aa2X2F5w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/7sfF51LPY2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/RjyuXkSQJQ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/BusHeo5WDUc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/cVgCe9d3fsU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/fWRERTA5VA4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            
-
-
-            <!-- Repeat for each video -->
-        </div>
-    </section>
-
-    <section id="titles" style="margin-top: 50px;">
-        <h2  style="margin-bottom: 0;">Titles</h2>
-        <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
-        <div class="video-container">
-            <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
-            <iframe src="https://www.youtube.com/embed/kL9Xif0Jh44" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/L3VIfd4YYHc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/oe9H-4JYQwU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/gjvYRYji3po" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/o05L9UajfuM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/WDv7Ov-TSAI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/JyiHGEGyMRg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/9g5asMlCTnQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            
-
-            <!-- Repeat for each video -->
-        </div>
-    </section>
-
-
-    <section id="Ad-script" style="margin-top: 50px;">
-        <h2  style="margin-bottom: 0;">Scripting & Expressions</h2>
-        <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
-        <div class="video-container">
-            <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
-            <iframe src="https://www.youtube.com/embed/d2rZ3x8KA9o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/hjXMGqpkd60" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/71PBemkfyHw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/qYg_DtibLfE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/HjmuQEd7wWs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      
-        </div>
+           
+        
     </section>
 
     
-    <section id="ai-ml-automation" style="margin-top: 50px;">
-        <h2  style="margin-bottom: 0;">AI ML Automation</h2>
-        <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
-        <div class="video-container">
-            <!-- Replace [VIDEO_ID] with your actual YouTube video IDs -->
-            <iframe src="https://www.youtube.com/embed/-B53sgNoKw4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/C4jq3AY8dYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/IyeemIeIs08" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/sCNPp8sW_uA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/hvj9D4i5uU0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/6bdt5iNbtKU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-            <!-- Repeat for each video -->
-        </div>
-    </section>
 
 
     <script>
