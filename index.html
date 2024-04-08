@@ -87,71 +87,71 @@
         }
 
 
-.sectionA {
-    box-sizing: border-box;
-    width: calc(100% - 10px - 10px);
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    position: fixed; /* Needed for absolute positioning of children */
-    top: 0;
-    padding-top: 10px;
-    background-image: url('bg.jpg');
-    background-position: center;
-    z-index: 9999;
-}
+    .sectionA {
+        box-sizing: border-box;
+        width: calc(100% - 10px - 10px);
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        position: fixed; /* Needed for absolute positioning of children */
+        top: 0;
+        padding-top: 10px;
+        background-image: url('bg.jpg');
+        background-position: center;
+        z-index: 9999;
+    }
 
-.sectionB {
-    display: flex; /* Enables flexbox layout */
-    width: 100%; /* Takes full width of its parent */
-    position: relative; /* Allows absolute positioning of header and socialLinks */
-    padding-bottom: 20px;
+    .sectionB {
+        display: flex; /* Enables flexbox layout */
+        width: 100%; /* Takes full width of its parent */
+        position: relative; /* Allows absolute positioning of header and socialLinks */
+        padding-bottom: 20px;
+        
+    }
+
+    .sectionB > .socialLinks {
+        left: 0;top: 0;
+        width: 33.333%; /* 1/3 of sectionB's width */
+        text-align: left;
+        margin-left: 12px;
+        
+    }
+
+    .sectionB > .spacer {
+        flex: 1;
+    }
+
+    .sectionB > .portfolio_links {
+        right: 0;top: 0;
+        width: 33.333%; /* 1/3 of sectionB's width */
+        /* Ensure the social links content aligns to the right */
+        text-align: right;
+        margin-right: 12px;
+        
     
-}
+    }
 
-.sectionB > .socialLinks {
-    left: 0;top: 0;
-    width: 33.333%; /* 1/3 of sectionB's width */
-    text-align: left;
-    margin-left: 12px;
-    
-}
+    nav {
+        width: 100%; /* Full width to match sectionB */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        /* Adjust height if needed, or let it be content-based */
+        display: flex; /* Flex layout to align nav items, optional */
+        justify-content: center; /* Center items horizontally, optional */
+        align-items: center; /* Center items vertically, optional */
+        flex-wrap: wrap; /* Allows nav items to wrap within the nav container */
+        text-align: center; /* Center the text of nav links if not using flexbox for alignment */
+        /* Add any additional styling for nav */
+    }
 
-.sectionB > .spacer {
-    flex: 1;
-}
+    .socialLinks a, .portfolio_links a {
+        font-size: 10px;
+        color: #52a77b;
+        text-decoration: none;
+        padding-bottom: 2px;
+    }
 
-.sectionB > .portfolio_links {
-    right: 0;top: 0;
-    width: 33.333%; /* 1/3 of sectionB's width */
-    /* Ensure the social links content aligns to the right */
-    text-align: right;
-    margin-right: 12px;
-    
-   
-}
-
-nav {
-    width: 100%; /* Full width to match sectionB */
-    padding-top: 10px;
-    padding-bottom: 10px;
-    /* Adjust height if needed, or let it be content-based */
-    display: flex; /* Flex layout to align nav items, optional */
-    justify-content: center; /* Center items horizontally, optional */
-    align-items: center; /* Center items vertically, optional */
-    flex-wrap: wrap; /* Allows nav items to wrap within the nav container */
-    text-align: center; /* Center the text of nav links if not using flexbox for alignment */
-    /* Add any additional styling for nav */
-}
-
-.socialLinks a, .portfolio_links a {
-    font-size: 10px;
-    color: #52a77b;
-    text-decoration: none;
-    padding-bottom: 2px;
-}
-
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
 
             nav {
                 justify-content: space-around; /* Adjusts spacing for smaller screens */
@@ -163,7 +163,7 @@ nav {
 
             .video-container .video-item {
                 max-width: 100%;
-                max-height: 100%;
+                height: calc((100vw - 20px) * 9 / 16);
                 object-fit: cover;
              }
             
@@ -247,33 +247,33 @@ nav {
         <p  style="margin-top: 0;font-weight: 200;">Brief explanation of what tools I use.</p>
         
         <div class="video-container">
-            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Aurora+Borealis.jpg">
-                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Aurora+Borealis.mp4" type="video/mp4">
+            <video class="video-item" controls autoplay poster="https://storage.googleapis.com/manjunathportfolio/output/Aurora%20Borealis.jpg">
+                <source src="https://storage.googleapis.com/manjunathportfolio/individial1/vfx/Aurora%20Borealis.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Sun+Temple.jpg">
-                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Sun+Temple.mp4" type="video/mp4">
+            <video class="video-item" controls autoplay poster="https://storage.googleapis.com/manjunathportfolio/output/Sun%20Temple.jpg">
+                <source src="https://storage.googleapis.com/manjunathportfolio/individial1/vfx/Sun%20Temple.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transition_Another+World.jpg">
-                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Transition_Another+World.mp4" type="video/mp4">
+            <video class="video-item" controls autoplay poster="https://storage.googleapis.com/manjunathportfolio/output/Transition_Another%20World.jpg">
+                <source src="https://storage.googleapis.com/manjunathportfolio/individial1/vfx/Transition_Another%20World.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Transiton_Energised.jpg">
-                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Transiton_Energised.mp4" type="video/mp4">
+            <video class="video-item" controls autoplay poster="https://storage.googleapis.com/manjunathportfolio/output/Transiton_Energised.jpg">
+                <source src="https://storage.googleapis.com/manjunathportfolio/individial1/vfx/Transiton_Energised.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Vatika+Business+Center.jpg">
-                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Vatika+Business+Center.mp4" type="video/mp4">
+            <video class="video-item" controls autoplay poster="https://storage.googleapis.com/manjunathportfolio/output/Vatika%20Business%20Center.jpg">
+                <source src="https://storage.googleapis.com/manjunathportfolio/individial1/vfx/Vatika%20Business%20Center.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <video class="video-item" controls autoplay poster="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/output/Wolf+Pack.jpg">
-                <source src="https://myawsbucket7472.s3.ap-south-1.amazonaws.com/individial/vfx/Wolf+Pack.mp4" type="video/mp4">
+            <video class="video-item" controls autoplay poster="https://storage.googleapis.com/manjunathportfolio/output/Wolf%20Pack.jpg">
+                <source src="https://storage.googleapis.com/manjunathportfolio/individial1/vfx/Wolf%20Pack.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
@@ -281,9 +281,6 @@ nav {
            
         
     </section>
-
-    
-
 
     <script>
 
@@ -296,6 +293,7 @@ var videos = document.querySelectorAll('video');
     function pauseAllVideos() {
         videos.forEach(function(video) {
             video.pause();
+            
         });
     }
 
