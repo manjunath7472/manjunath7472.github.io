@@ -21,10 +21,11 @@
     
         .video-container .video-item {
             flex: 1 1 100%; /* Responsive width, minimum 300px */
-            height: 141px; /* Based on a 16:9 aspect ratio */
             transition: transform 0.3s ease; /* Smooth transition for scaling */
-            max-width: 250px;
+            max-width: 360px;
+            height: calc((360px - 20px) * 9 / 16);
             border-radius: 4px;
+            object-fit: cover;
         }
 
         .video-container .video-item:hover {
