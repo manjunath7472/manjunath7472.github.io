@@ -94,7 +94,7 @@
         document.getElementById('balance').opacity = 0;
         async function fetchBalance() {
             try {
-                const response = await fetch('http://localhost:7500/balance.txt');
+                const response = await fetch('balance.txt');
                 const balance = await response.text();
                 document.getElementById('balance').innerHTML = `${balance.trim()} &#8377;`;
             } catch (error) {
