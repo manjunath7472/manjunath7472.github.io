@@ -20,7 +20,7 @@
     
     <!-- Video Container -->
     <div class="shorts-container">
-        <iframe src="https://www.youtube.com/embed/vEGVq4U1iQk?autoplay=1&loop=1&playlist=vEGVq4U1iQk"
+        <iframe id="video-frame" src="https://www.youtube.com/embed/vEGVq4U1iQk?autoplay=1&loop=1&playlist=vEGVq4U1iQk"
                 frameborder="0"
                 allowfullscreen
                 allow="autoplay; encrypted-media"
@@ -31,7 +31,7 @@
         <div class="actions">
             <div class="icon">
                 <img src="https://img.icons8.com/?size=100&id=85618&format=png&color=FFFFFF" alt="Like">
-                <p>10</p>
+                <p id="hlikes">...</p>
             </div>
             <div class="icon">
                 <img src="https://img.icons8.com/?size=100&id=87695&format=png&color=FFFFFF" alt="Dislike">
@@ -48,8 +48,8 @@
             <img src="cicon.png" alt="Profile" class="profile-icon">
             <div>
                 <p class="username">@charithya001</p>
-                <p class="video-title">Ganesha Pancharatnam Stotram by Char...</p>
-                <p class="views">Unlisted · 3 views</p>
+                <p class="video-title" id="video-title">...</p>
+                <p class="views" id="views">...</p>
             </div>
         </div>
     </div>
@@ -61,6 +61,53 @@
         <img src="https://img.icons8.com/?size=100&id=87581&format=png&color=FFFFFF" alt="Subscriptions">
         <img src="cicon.png" alt="You">
     </div>
+
+    <script>
+        async function updateVideoDetails() {
+            const apiKey = 'AIzaSyAyk7lnG33leEh3yNoYdqLVirvM7Rydywk';
+            const spreadsheetId = '1Hrm7WvDxtnep0D3qisJQrk1omGcoqQf01ko46fy7fQs';
+            const videoIdRange = 'Sheet1!B2';
+            const videoTitleRange = 'Sheet1!B3';
+            const viewsRange = 'Sheet1!B4';
+            const likesRange = 'Sheet1!B5';
+
+            try {
+                // Fetch video ID
+                const videoIdResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${videoIdRange}?key=${apiKey}`);
+                const videoIdData = await videoIdResponse.json();
+                const videoId = videoIdData.values[0][0];
+
+                // Fetch video title
+                const videoTitleResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${videoTitleRange}?key=${apiKey}`);
+                const videoTitleData = await videoTitleResponse.json();
+                const videoTitle = videoTitleData.values[0][0];
+
+                // Fetch views
+                const viewsResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${viewsRange}?key=${apiKey}`);
+                const viewsData = await viewsResponse.json();
+                const views = viewsData.values[0][0];
+
+                // Fetch likes
+                const likesResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${likesRange}?key=${apiKey}`);
+                const likesData = await likesResponse.json();
+                const likes = likesData.values[0][0];
+
+                // Update iframe src
+                const iframe = document.getElementById('video-frame');
+                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}`;
+
+                // Update video title and views
+                document.getElementById('video-title').textContent = videoTitle;
+                document.getElementById('views').textContent = views + ' views';
+                document.getElementById('hlikes').textContent = likes;
+            } catch (error) {
+                console.error('Error fetching video details:', error);
+            }
+        }
+
+        // Ensure the function is called after the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', updateVideoDetails);
+    </script>
 
 </body>
 </html>
