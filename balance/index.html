@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Balance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+        }
+        #title {
+            font-size: 35px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 100px;
+        }
+        #balance-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        #balance {
+            font-size: 72px;
+            margin: 20px 0;
+        }
+        .button {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+        }
+        #increment {
+            top: 0;
+            right: 0;
+        }
+        #decrement {
+            top: 0;
+            left: 0;
+        }
+
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #111;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .bottom-nav img {
+            width: 30px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="title">
+        <img src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000" alt="Logo" width="100" height="100">
+        Charithya's Youtube Account
+    </div>
+    <div id="balance-container">
+        <div id="balance">0 &#8377;</div>
+    </div>
+    <button id="increment" class="button"></button>
+    <button id="decrement" class="button"></button>
+
+    <div class="bottom-nav">
+        <img src="https://img.icons8.com/?size=100&id=86527&format=png&color=FFFFFF" alt="Home">
+        <img src="https://img.icons8.com/?size=100&id=ajczeHCWXbyR&format=png&color=FFFFFF" alt="Shorts">
+        <img src="https://img.icons8.com/?size=100&id=87581&format=png&color=FFFFFF" alt="Subscriptions">
+        <img src="cicon.png" alt="You">
+    </div>
+
+    <script>
+        document.getElementById('balance').opacity = 0;
+        async function fetchBalance() {
+            try {
+                const response = await fetch('http://localhost:7500/balance.txt');
+                const balance = await response.text();
+                document.getElementById('balance').innerHTML = `${balance.trim()} &#8377;`;
+            } catch (error) {
+                console.error('Error fetching balance:', error);
+            }
+        }
+
+        function updateBalance(change) {
+            const balanceElement = document.getElementById('balance');
+            let currentBalance = parseInt(balanceElement.innerText.replace(' ₹', ''), 10);
+            currentBalance += change;
+            balanceElement.innerHTML = `${currentBalance} &#8377;`;
+        }
+
+        document.getElementById('increment').addEventListener('click', () => updateBalance(1));
+        document.getElementById('decrement').addEventListener('click', () => updateBalance(-1));
+
+        fetchBalance();
+    </script>
+</body>
+</html>
