@@ -5,10 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youtube</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Style for the invisible button */
+        #invisible-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px; /* Adjust size as needed */
+            height: 100px; /* Adjust size as needed */
+            opacity: 0;
+            z-index: 100; /* Ensure the button is on top */
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Top Bar: Back Arrow and Menu 
+    <!-- Invisible button for redirection -->
+    <button id="invisible-button" onclick="location.href='balance.html'"></button>
+
+    <!-- Top Bar: Back Arrow and Menu -->
+    <!-- 
     <div class="top-bar">
         <div class="back-section">
             <img src="https://img.icons8.com/ios-filled/50/ffffff/left.png" alt="Back" class="icon-back">
@@ -16,7 +32,7 @@
         </div>
         <img src="https://img.icons8.com/ios-filled/50/ffffff/menu-2.png" alt="Menu" class="icon-menu">
     </div>
-     -->
+    -->
     
     <!-- Video Container -->
     <div class="shorts-container">

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Balance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        #title {
+            font-size: 25px;
+            margin-top: 0px;
+            margin-bottom: 50px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #balance-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        #balance {
+            font-size: 72px;
+            margin: 0px 0;
+        }
+        .button {
+            width: 100px;
+            height: 100px;
+            opacity: 0;
+        }
+        #increment {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        #decrement {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .bottom-half {
+            margin-bottom: 50px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1s; /* Smooth transition for visibility */
+        }
+        .bottom-half input,
+        .bottom-half button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            font-size: 24px;
+        }
+        .bottom-half button {
+            width: 25%;
+        }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #111;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .bottom-nav img {
+            width: 30px;
+            height: 30px;
+        }
+        /* Animation CSS */
+        @keyframes moveUpAndOut {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+        .animate-up-out {
+            animation: moveUpAndOut 1s forwards;
+        }
+        @keyframes moveDownToPosition {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .animate-down-in {
+            animation: moveDownToPosition 1s forwards;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="bottom-half" id="bottom-half">
+        <img id="animate-img" src="https://img.icons8.com/?size=100&id=c0o2ujoSktPd&format=png&color=FF0000" alt="Logo" width="100" height="100">
+        <input type="number" id="amount" placeholder="Send Money...">
+        <button id="send">Send</button>
+    </div>
+
+    <div id="balance-container">
+        <div id="balance">&#8377;</div> <!-- Initial balance set to "Loading..." -->
+    </div>
+    
+    <div id="title">
+        <img id="title-img" src="https://img.icons8.com/?size=100&id=c0o2ujoSktPd&format=png&color=00FF00" alt="Logo" width="100" height="100">
+        <img src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000" alt="Logo" width="100" height="100">
+        Charithya's Youtube Account
+    </div>
+    
+    <button id="increment" class="button"></button>
+    <button id="decrement" class="button"></button>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+        <img src="https://img.icons8.com/?size=100&id=86527&format=png&color=FFFFFF" alt="Home">
+        <img src="https://img.icons8.com/?size=100&id=ajczeHCWXbyR&format=png&color=FFFFFF" alt="Shorts">
+        <img src="https://img.icons8.com/?size=100&id=87581&format=png&color=FFFFFF" alt="Subscriptions">
+        <img src="cicon.png" alt="You">
+    </div>
+
+    <script>
+        const apiKey = 'AIzaSyAyk7lnG33leEh3yNoYdqLVirvM7Rydywk';
+        const spreadsheetId = '1Hrm7WvDxtnep0D3qisJQrk1omGcoqQf01ko46fy7fQs';
+        const range = 'Sheet1!B1';
+
+        async function fetchBalance() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const balance = parseInt(data.values[0][0], 10);
+                animateCounter(balance, true);
+            } catch (error) {
+                console.error('Error fetching balance:', error);
+            }
+        }
+
+        // Function to animate the counter
+        function animateCounter(targetBalance, increment = true) {
+            const balanceElement = document.getElementById('balance');
+            let currentBalance = increment ? 0 : parseInt(balanceElement.innerText.replace(' ₹', ''), 10);
+            const step = Math.ceil(Math.abs(targetBalance - currentBalance) / 100); // Adjust the step to control the speed
+
+            const counter = setInterval(() => {
+                currentBalance += increment ? step : -step;
+                if ((increment && currentBalance >= targetBalance) || (!increment && currentBalance <= targetBalance)) {
+                    clearInterval(counter);
+                    currentBalance = targetBalance;
+                    if (increment) {
+                        // Show the bottom-half div after the initial animation
+                        document.getElementById('bottom-half').style.opacity = 1;
+                    }
+                }
+                balanceElement.innerHTML = `${currentBalance} &#8377;`;
+            }, 50); // Adjust the interval to control the speed
+        }
+
+        document.getElementById('send').addEventListener('click', () => {
+            const amountElement = document.getElementById('amount');
+            const amount = parseInt(amountElement.value, 10);
+            if (isNaN(amount) || amount <= 0) {
+                alert('Check amount...');
+                return;
+            }
+
+            const balanceElement = document.getElementById('balance');
+            let currentBalance = parseInt(balanceElement.innerText.replace(' ₹', ''), 10);
+
+            if (amount > currentBalance) {
+                alert('Insufficient balance.');
+                return;
+            }
+
+            const newBalance = currentBalance - amount;
+            animateCounter(newBalance, false);
+
+            // Clear the input box and animate the image up and out
+            amountElement.value = '';
+
+            const animateImg = document.getElementById('animate-img');
+            animateImg.classList.add('animate-up-out');
+        });
+
+        // Event listener to remove the animation class when the input is focused or typed
+        document.getElementById('amount').addEventListener('input', () => {
+            const animateImg = document.getElementById('animate-img');
+            animateImg.classList.remove('animate-up-out');
+        });
+
+        // Event listeners for the increment and decrement buttons
+        document.getElementById('increment').addEventListener('click', () => {
+            const balanceElement = document.getElementById('balance');
+            let currentBalance = parseInt(balanceElement.innerText.replace(' ₹', ''), 10);
+            currentBalance += 1;
+            balanceElement.innerHTML = `${currentBalance} &#8377;`;
+        });
+
+        document.getElementById('decrement').addEventListener('click', () => {
+            const balanceElement = document.getElementById('balance');
+            let currentBalance = parseInt(balanceElement.innerText.replace(' ₹', ''), 10);
+            currentBalance -= 1;
+            balanceElement.innerHTML = `${currentBalance} &#8377;`;
+        });
+
+        // Animate the title image on page load
+        window.addEventListener('load', () => {
+            const titleImg = document.getElementById('title-img');
+            titleImg.classList.add('animate-down-in');
+            fetchBalance();
+        });
+    </script>
+</body>
+</html>
