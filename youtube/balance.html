@@ -101,13 +101,32 @@
         #coin {
             width: 22%;
         }
+
+        #send {
+            background-color: rgb(255, 60, 60); /* Light red color */
+            border: none;                      /* Remove default border */
+            color: white;                      /* Text color */
+            padding: 0px;                     /* Padding inside the button (equal padding for height and width) */
+            text-align: center;                /* Center the text */
+            text-decoration: none;             /* Remove underline */
+            display: inline-block;             /* Display as inline block */
+            font-size: 25px;                   /* Font size */
+            margin: 4px;                       /* Margin around the button */
+            cursor: pointer;                   /* Cursor shows a pointer on hover */
+            border-radius: 50%;                /* Fully rounded corners for circle */
+            width: 75px;                       /* Fixed width */
+            height: 75px;                      /* Fixed height */
+            box-sizing: border-box;            /* Include padding and border in element's total width and height */
+        }
+
+       
     </style>
 </head>
 <body>
     
     <div class="bottom-half" id="bottom-half">
         <img id="animate-img" src="https://img.icons8.com/?size=100&id=c0o2ujoSktPd&format=png&color=FF0000" alt="Logo" width="100" height="100">
-        <input type="number" id="amount" placeholder="Send Money...">
+        <input type="number" id="amount" placeholder="...">
         <button id="send">Send</button>
     </div>
 
