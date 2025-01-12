@@ -98,6 +98,9 @@
         .animate-down-in {
             animation: moveDownToPosition 1s forwards;
         }
+        #coin {
+            width: 6.2%;
+        }
     </style>
 </head>
 <body>
@@ -109,7 +112,8 @@
     </div>
 
     <div id="balance-container">
-        <div id="balance">&#8377;</div> <!-- Initial balance set to "Loading..." -->
+        <div id="balance"></div> 
+        <img id="coin" src="rupee.gif" alt="Dollar Coin">
     </div>
     
     <div id="title">
@@ -163,7 +167,7 @@
                         document.getElementById('bottom-half').style.opacity = 1;
                     }
                 }
-                balanceElement.innerHTML = `${currentBalance} &#8377;`;
+                balanceElement.innerHTML = `${currentBalance} `;
             }, 50); // Adjust the interval to control the speed
         }
 
@@ -204,14 +208,14 @@
             const balanceElement = document.getElementById('balance');
             let currentBalance = parseInt(balanceElement.innerText.replace(' ₹', ''), 10);
             currentBalance += 1;
-            balanceElement.innerHTML = `${currentBalance} &#8377;`;
+            balanceElement.innerHTML = `${currentBalance} `;
         });
 
         document.getElementById('decrement').addEventListener('click', () => {
             const balanceElement = document.getElementById('balance');
             let currentBalance = parseInt(balanceElement.innerText.replace(' ₹', ''), 10);
             currentBalance -= 1;
-            balanceElement.innerHTML = `${currentBalance} &#8377;`;
+            balanceElement.innerHTML = `${currentBalance} `;
         });
 
         // Animate the title image on page load
